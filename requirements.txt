@@ -1,7 +1,5 @@
 fastapi
 pydantic
 pdf_mail
-uvicorn
 https://med7.s3.eu-west-2.amazonaws.com/en_core_med7_trf.tar.gz
-spacy-transformers
 gunicorn
