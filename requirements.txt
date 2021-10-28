@@ -3,5 +3,6 @@ pydantic
 pdf_mail
 gunicorn
 uvicorn
+medacy
 git+https://github.com/NLPatVCU/medaCy.git@development
 git+https://github.com/NLPatVCU/medaCy_model_clinical_notes.git
