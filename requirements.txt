@@ -3,4 +3,5 @@ pydantic
 pdf_mail
 gunicorn
 uvicorn
-https://med7.s3.eu-west-2.amazonaws.com/en_core_med7_trf.tar.gz
+git+https://github.com/NLPatVCU/medaCy.git@development
+git+https://github.com/NLPatVCU/medaCy_model_clinical_notes.git
