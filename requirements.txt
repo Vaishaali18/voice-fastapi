@@ -1,3 +1,4 @@
 fastapi
 pydantic
 pdf_mail
+gunicorn
