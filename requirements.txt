@@ -4,7 +4,7 @@ pydantic
 pdf_mail
 gunicorn
 uvicorn
-spacy-2.2.2-cp37-cp37m-manylinux1_x86_64.whl
+spacy==2.2.2
 torch==1.8.1+cpu 
 torchvision==0.9.1+cpu
 git+https://github.com/NLPatVCU/medaCy.git@development
