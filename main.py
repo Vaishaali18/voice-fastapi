@@ -8,8 +8,7 @@ from datetime import datetime
 import spacy
 from medacy.model.model import Model
 app = FastAPI()
-
-
+model = Model.load_external('medacy_model_clinical_notes')
 
 app.add_middleware(
     CORSMiddleware,
@@ -61,19 +60,14 @@ async def createPdf(payload: Payload):
 
 @app.post('/data')
 async def classify(payload: Payload):
-    model = Model.load_external('medacy_model_clinical_notes')
-    print(payload)
     annotation = model.predict(payload.data)
-    print(annotation)
     final_dict = []
     for ann in annotation:
         dict1 = {'data' : ann[3] , 'label': ann[0].upper()}
         final_dict.append(dict1)
-    print(final_dict)
     data= {"item" : final_dict }
     data=json.dumps(data)
     data = data.encode("utf-8")
-    print(payload)
     return data;
 
 @app.post('/sendpdf')
