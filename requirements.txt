@@ -1,11 +1,12 @@
+python-3.7
 -f https://download.pytorch.org/whl/torch_stable.html
 fastapi
 pydantic
 pdf_mail
 gunicorn
 uvicorn
+spacy-2.2.2-cp37-cp37m-manylinux1_x86_64.whl
 torch==1.8.1+cpu 
 torchvision==0.9.1+cpu
-spacy==2.2.0
 git+https://github.com/NLPatVCU/medaCy.git@development
 git+https://github.com/NLPatVCU/medaCy_model_clinical_notes.git
