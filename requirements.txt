@@ -1,7 +1,10 @@
+-f https://download.pytorch.org/whl/torch_stable.html
 fastapi
 pydantic
 pdf_mail
 gunicorn
 uvicorn
+torch==1.8.1+cpu 
+torchvision==0.9.1+cpu
 git+https://github.com/NLPatVCU/medaCy.git@development
 git+https://github.com/NLPatVCU/medaCy_model_clinical_notes.git
