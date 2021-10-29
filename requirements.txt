@@ -6,5 +6,6 @@ gunicorn
 uvicorn
 torch==1.8.1+cpu 
 torchvision==0.9.1+cpu
+spacy==2.2.0
 git+https://github.com/NLPatVCU/medaCy.git@development
 git+https://github.com/NLPatVCU/medaCy_model_clinical_notes.git
