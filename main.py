@@ -35,13 +35,15 @@ def demo():
 
 @app.post('/pdf')
 async def createPdf(payload: Payload):
-    med7 = en_core_med7_trf.load()
-    doc = med7(payload.data)
-    pred = [[ent.text, ent.label_] for ent in doc.ents]
+    annotation = model.predict(payload.data)
+    pred = []
+    for ann in annotation:
+        dict1 = [ann[3] , ann[0].upper()]
+        pred.append(dict1)
+    print(pred)
     text = payload.data
     text.lower()
     sentences = text.split("next")
-    print(sentences)
     data = []
     line = 0 
     entities = {"DRUG" : "NA" , "DURATION" : "NA" , "STRENGTH" : "NA" , "ROUTE" : "NA" , "FORM" : "NA" , "DOSAGE" : "NA" , "FREQUENCY" : "NA"}
@@ -54,7 +56,6 @@ async def createPdf(payload: Payload):
             entities[pred[pre][1]] = pred[pre][0]
             line += 1
     data.append(entities)
-    print(data)
     return data
  
 
