@@ -4,11 +4,10 @@ from pydantic import BaseModel, Field
 from fastapi import FastAPI, Query, Path,Request, Form
 from pdf_mail import sendpdf
 import json 
-import en_core_med7_trf
 from datetime import datetime
 import spacy
-
-
+from medacy.model.model import Model
+model = Model.load_external('medacy_model_clinical_notes')
 app = FastAPI()
 
 
@@ -64,14 +63,12 @@ async def createPdf(payload: Payload):
 @app.post('/data')
 async def classify(payload: Payload):
     print(payload)
-    med7 = en_core_med7_trf.load()
-    print("hello")
-    doc = med7(payload.data)
+    annotation = model.predict(payload.data)
     final_dict = []
-    print("got")
-    for ent in doc.ents:
-        dict1={'data': ent.text,'label': ent.label_}
+    for ann in annotation:
+        dict1 = {'data' : ann[3] , 'label': ann[0].upper()}
         final_dict.append(dict1)
+    print(final_dict)
     data= {"item" : final_dict }
     data=json.dumps(data)
     data = data.encode("utf-8")
